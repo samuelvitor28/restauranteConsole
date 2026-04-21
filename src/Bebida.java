@@ -19,6 +19,8 @@ public class Bebida implements IProduto {
         return _valor;
     }
 
+    public int GetId(){return _id;}
+
     @Override
     public String toString(){
         StringBuilder s = new StringBuilder("Nome da Bebida: " + _nome + "\nDescrição: " + _descricao + "\nPreço: " + _valor);

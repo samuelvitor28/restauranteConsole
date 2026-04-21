@@ -19,6 +19,8 @@ public class Prato implements IProduto {
         return _valor;
     }
 
+    public int GetId(){return _id;}
+
     @Override
     public String toString(){
         StringBuilder s = new StringBuilder("id: " + _id + " Nome do Prato: " + _nome + "\nDescrição: " + _descricao + "\nPreço: " + _valor);
