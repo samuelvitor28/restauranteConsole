@@ -9,7 +9,7 @@ public class Cardapio{
     public String ListarProdutos (){
         StringBuilder cardapio = new StringBuilder("----MENU----\n");
         for(IProduto prod : _produtos){
-            cardapio.append(prod.toString() + "\n");
+            cardapio.append(prod.toString() + "\n------------\n");
         }
         return cardapio.toString();
     }

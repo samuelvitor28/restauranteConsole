@@ -23,7 +23,7 @@ public class Prato implements IProduto {
 
     @Override
     public String toString(){
-        StringBuilder s = new StringBuilder("id: " + _id + " Nome do Prato: " + _nome + "\nDescrição: " + _descricao + "\nPreço: " + _valor);
+        StringBuilder s = new StringBuilder("Nome do Prato: " + _nome + "\nDescrição: " + _descricao + "\nPreço: " + _valor);
         return s.toString();
     }
 }

@@ -1,6 +1,6 @@
 public enum CategoriaPrato {
     PRINCIPAL,
     SOBREMESA,
-    PORCOES,
+    PORCAO,
     ENTRADA
 }
