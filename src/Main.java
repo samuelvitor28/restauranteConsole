@@ -11,7 +11,7 @@ public class Main{
             opcao = leitor.nextInt();
             switch(opcao){
                 case 1:
-                    CadastrarProduto(cardapio);
+                    CadastrarProduto(cardapio, leitor);
                     break;
             }
             System.out.println(cardapio.ListarProdutos());
@@ -24,8 +24,7 @@ public class Main{
         return menu.toString();
     }
 
-    public static void CadastrarProduto(Cardapio cardapio){
-        Scanner leitor = new Scanner(System.in);
+    public static void CadastrarProduto(Cardapio cardapio, Scanner leitor){
         int opcao, opcaoCategoria, contador = 1;
         String nome, descricao;
         double valor;
@@ -33,13 +32,15 @@ public class Main{
         CategoriaPrato categoriaPrato;
         System.out.print("\nOpções de Produtos para cadastrar:\n1. Prato\n2. Bebida\nDigite a opção desejada: ");
         opcao = leitor.nextInt();
+        leitor.nextLine();
         if(opcao == 1){
             System.out.print("\nDigite o nome do prato: ");
-            nome = leitor.next();
+            nome = leitor.nextLine();
             System.out.print("\nDigite o valor do prato: ");
             valor = leitor.nextDouble();
+            leitor.nextLine();
             System.out.print("\nDigite a descrição do prato: ");
-            descricao = leitor.next();
+            descricao = leitor.nextLine();
             System.out.print("\n----CATEGORIAS-----");
             for(CategoriaPrato categoria : CategoriaPrato.values()){
                 System.out.println("\n" + contador + ". " + categoria);
@@ -71,11 +72,12 @@ public class Main{
 
         else if(opcao == 2){
             System.out.print("\nDigite o nome da bebida: ");
-            nome = leitor.next();
+            nome = leitor.nextLine();
             System.out.print("\nDigite o valor do bebida: ");
             valor = leitor.nextDouble();
+            leitor.nextLine();
             System.out.print("\nDigite a descrição da bebida: ");
-            descricao = leitor.next();
+            descricao = leitor.nextLine();
             System.out.print("\n-----CATEGORIAS-----");
             for(CategoriaBebida categoria : CategoriaBebida.values()){
                 System.out.println("\n" + contador + ". " + categoria);
