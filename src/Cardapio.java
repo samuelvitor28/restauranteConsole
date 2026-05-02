@@ -16,6 +16,7 @@ public class Cardapio{
 
     public String NovoProduto (IProduto novoProduto){
         _produtos.add(novoProduto);
+        novoProduto.SetID(_produtos.size());
         return "Produto adicionado com sucesso!";
     }
 

@@ -14,6 +14,7 @@ public class Main{
                     CadastrarProduto(cardapio, leitor);
                     break;
             }
+
             System.out.println(cardapio.ListarProdutos());
         }while(opcao != 4);
     }
@@ -24,7 +25,7 @@ public class Main{
         return menu.toString();
     }
 
-    public static void CadastrarProduto(Cardapio cardapio, Scanner leitor){
+    public static void CadastrarProduto(Cardapio cardapio, Scanner leitor) {
         int opcao, opcaoCategoria, contador = 1;
         String nome, descricao;
         double valor;
@@ -33,7 +34,7 @@ public class Main{
         System.out.print("\nOpções de Produtos para cadastrar:\n1. Prato\n2. Bebida\nDigite a opção desejada: ");
         opcao = leitor.nextInt();
         leitor.nextLine();
-        if(opcao == 1){
+        if (opcao == 1) {
             System.out.print("\nDigite o nome do prato: ");
             nome = leitor.nextLine();
             System.out.print("\nDigite o valor do prato: ");
@@ -42,13 +43,13 @@ public class Main{
             System.out.print("\nDigite a descrição do prato: ");
             descricao = leitor.nextLine();
             System.out.print("\n----CATEGORIAS-----");
-            for(CategoriaPrato categoria : CategoriaPrato.values()){
+            for (CategoriaPrato categoria : CategoriaPrato.values()) {
                 System.out.println("\n" + contador + ". " + categoria);
                 contador++;
             }
             System.out.print("Digite o nº da categoria desejada: ");
             opcaoCategoria = leitor.nextInt();
-            switch (opcaoCategoria){
+            switch (opcaoCategoria) {
                 case 1:
                     categoriaPrato = CategoriaPrato.PRINCIPAL;
                     break;
@@ -56,7 +57,7 @@ public class Main{
                     categoriaPrato = CategoriaPrato.SOBREMESA;
                     break;
                 case 3:
-                    categoriaPrato =  CategoriaPrato.PORCAO;
+                    categoriaPrato = CategoriaPrato.PORCAO;
                     break;
                 case 4:
                     categoriaPrato = CategoriaPrato.ENTRADA;
@@ -69,8 +70,7 @@ public class Main{
             Prato novoPrato = new Prato(nome, valor, descricao, categoriaPrato);
             System.out.println(cardapio.NovoProduto(novoPrato));
         }
-
-        else if(opcao == 2){
+        else if (opcao == 2) {
             System.out.print("\nDigite o nome da bebida: ");
             nome = leitor.nextLine();
             System.out.print("\nDigite o valor do bebida: ");
@@ -79,13 +79,13 @@ public class Main{
             System.out.print("\nDigite a descrição da bebida: ");
             descricao = leitor.nextLine();
             System.out.print("\n-----CATEGORIAS-----");
-            for(CategoriaBebida categoria : CategoriaBebida.values()){
+            for (CategoriaBebida categoria : CategoriaBebida.values()) {
                 System.out.println("\n" + contador + ". " + categoria);
                 contador++;
             }
             System.out.print("Digite o nº da categoria desejada: ");
             opcaoCategoria = leitor.nextInt();
-            switch (opcaoCategoria){
+            switch (opcaoCategoria) {
                 case 1:
                     categoriaBebida = CategoriaBebida.SUCO;
                     break;
@@ -93,7 +93,7 @@ public class Main{
                     categoriaBebida = CategoriaBebida.REFRIGERANTE;
                     break;
                 case 3:
-                    categoriaBebida =  CategoriaBebida.ALCOOLICAS;
+                    categoriaBebida = CategoriaBebida.ALCOOLICAS;
                     break;
                 default:
                     categoriaBebida = CategoriaBebida.SUCO; // refatorar isso.
@@ -103,5 +103,11 @@ public class Main{
             Bebida novaBebida = new Bebida(nome, valor, descricao, categoriaBebida);
             System.out.println(cardapio.NovoProduto(novaBebida));
         }
+    }
+
+    public static void ExcluirProduto(Scanner leitor, Cardapio cardapio){
+        System.out.println(cardapio.ListarProdutos());
+        System.out.print("\n Digite o id do produto que deseje apagar: ");
+        System.out.println("\n" + cardapio.ExcluirProduto(leitor.nextInt()));
     }
 }

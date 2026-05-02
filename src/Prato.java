@@ -1,5 +1,4 @@
 public class Prato implements IProduto {
-    private static int contador = 0;
     private int _id;
     private String _nome;
     private double _valor;
@@ -7,8 +6,6 @@ public class Prato implements IProduto {
     private CategoriaPrato _categoria;
 
     public Prato(String nome, double valor, String descricao, CategoriaPrato categoria){
-        contador++;
-        _id = contador;
         _nome = nome;
         _valor = valor;
         _descricao = descricao;
@@ -21,9 +18,11 @@ public class Prato implements IProduto {
 
     public int GetId(){return _id;}
 
+    public void SetID(int id){_id = id;}
+
     @Override
     public String toString(){
-        StringBuilder s = new StringBuilder("Nome do Prato: " + _nome + "\nDescrição: " + _descricao + "\nPreço: " + _valor);
+        StringBuilder s = new StringBuilder(_id + ".\nNome do Prato: " + _nome + "\nDescrição: " + _descricao + "\nPreço: " + _valor);
         return s.toString();
     }
 }
