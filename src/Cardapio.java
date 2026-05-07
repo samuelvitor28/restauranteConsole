@@ -6,6 +6,7 @@ public class Cardapio{
         _produtos = new ArrayList<>();
     }
 
+
     public String ListarProdutos (){
         StringBuilder cardapio = new StringBuilder("----MENU----\n");
         for(IProduto prod : _produtos){
@@ -15,8 +16,15 @@ public class Cardapio{
     }
 
     public String NovoProduto (IProduto novoProduto){
+        int geradorId;
+        if(_produtos.isEmpty()){
+            geradorId = 1;
+        }
+        else {
+            geradorId = _produtos.getLast().GetId() + 1;
+        }
         _produtos.add(novoProduto);
-        novoProduto.SetID(_produtos.size());
+        novoProduto.SetID(geradorId);
         return "Produto adicionado com sucesso!";
     }
 

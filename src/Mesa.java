@@ -53,4 +53,16 @@ public class Mesa {
         }
         return mensagem.toString();
     }
+
+    @Override
+    public String toString(){
+        StringBuilder mensagem = new StringBuilder();
+        if(_disponivel){
+            mensagem.append("Mesa nº: " + _numeroMesa + " tem " + _quantidadeLugares + " lugares" + " e está disponível.");
+        }
+        else{
+            mensagem.append("Mesa nº: " + _numeroMesa + " tem " + _quantidadeLugares + " lugares" + " e está indisponível.");
+        }
+        return mensagem.toString();
+    }
 }

@@ -6,6 +6,7 @@ public class Main{
         Scanner leitor = new Scanner(System.in);
         int opcao = 0;
         Cardapio cardapio = new Cardapio();
+        ArrayList<Mesa> mesas = new ArrayList<Mesa>();
         do{
             System.out.print(ImprimirMenu());
             opcao = leitor.nextInt();
@@ -13,15 +14,29 @@ public class Main{
                 case 1:
                     CadastrarProduto(cardapio, leitor);
                     break;
+                case 2:
+                    ExcluirProduto(leitor, cardapio);
+                    break;
+                case 3:
+                    CadastrarMesa(leitor, mesas);
+                    break;
+                case 4:
+                    System.out.println(cardapio.ListarProdutos());
+                    break;
+                case 5:
+                    ListarMesas(mesas);
+                    break;
+                default:
+                    System.out.println("Digite um nº Válido!");
+                    break;
             }
 
-            System.out.println(cardapio.ListarProdutos());
-        }while(opcao != 4);
+        }while(opcao != 6);
     }
 
     public static String ImprimirMenu(){
         StringBuilder menu = new StringBuilder("---MENU---\n");
-        menu.append("1. Cadastrar novo produto\n2. Excluir Produto\n3. Nova Mesa\n4. Sair\nDigite sua opção: ");
+        menu.append("1. Cadastrar novo produto\n2. Excluir Produto\n3. Nova Mesa\n4. Mostrar Cardapio\n5. Listar Mesas\n6. Sair\nDigite sua opção: ");
         return menu.toString();
     }
 
@@ -108,6 +123,28 @@ public class Main{
     public static void ExcluirProduto(Scanner leitor, Cardapio cardapio){
         System.out.println(cardapio.ListarProdutos());
         System.out.print("\n Digite o id do produto que deseje apagar: ");
-        System.out.println("\n" + cardapio.ExcluirProduto(leitor.nextInt()));
+        int id = leitor.nextInt();
+        cardapio.ExcluirProduto(id);
+    }
+
+    public static void CadastrarMesa(Scanner leitor, ArrayList<Mesa> mesas){
+        System.out.print("Digite o número da mesa: ");
+        int numeroMesa = leitor.nextInt();
+        System.out.print("\nDigite a quantidade de lugares: ");
+        int quantidadeLugares = leitor.nextInt();
+        leitor.nextLine();
+        Mesa novaMesa = new Mesa(numeroMesa, quantidadeLugares);
+        System.out.print("\nA mesa será ocupada agora?\ndigite S para sim e N para não: ");
+        String opcao = leitor.nextLine();
+        if(opcao.toUpperCase().equals("S")){
+            System.out.println(novaMesa.Ocupar());
+        }
+        mesas.add(novaMesa);
+    }
+
+    public static void ListarMesas(ArrayList<Mesa> mesas){
+        for(Mesa m : mesas){
+            System.out.println(m.toString() + "\n");
+        }
     }
 }
