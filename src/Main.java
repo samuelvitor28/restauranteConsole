@@ -78,7 +78,7 @@ public class Main{
                     categoriaPrato = CategoriaPrato.ENTRADA;
                     break;
                 default:
-                    categoriaPrato = CategoriaPrato.PRINCIPAL; // refatorar isso ---commit de teste.
+                    categoriaPrato = CategoriaPrato.PRINCIPAL; // refatorar isso ---commit de teste 2.
                     System.out.println("Digite uma opcão válida!");
                     break;
             }
