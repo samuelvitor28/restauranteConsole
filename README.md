@@ -10,7 +10,9 @@ O objetivo do projeto é praticar conceitos de **programação orientada a objet
 ## 📌 Funcionalidades
 
 - Cadastro de pratos
+- Cadastro de mesas
 - Listagem de pratos
+- Listagem de mesas
 - Organização por categorias
 - Simulação de operações básicas de um restaurante
 - Execução totalmente via terminal
